@@ -1,0 +1,10 @@
+[user]
+	email = 15788686+maliwin@users.noreply.github.com
+[alias]
+	c = commit
+	s = status
+	st = status
+	lg = log --oneline
+	last = log -1 HEAD
+[core]
+	editor = nvim
