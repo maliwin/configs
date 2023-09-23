@@ -249,7 +249,7 @@ end, { desc = '[S]earch [A]ll' })
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'typescript', 'vimdoc', 'vim' },
+  ensure_installed = { 'c', 'cpp', 'lua', 'python', 'rust', 'vimdoc', 'vim' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
@@ -358,11 +358,8 @@ end
 
 -- Enable the following language servers
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
   pyright = {},
   rust_analyzer = {},
-  -- tsserver = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
   lua_ls = {
@@ -461,4 +458,10 @@ require('lsp_lines').setup() -- inline warnings/errors
 vim.diagnostic.config({
   virtual_text = false,
 })
-vim.keymap.set("", "<leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
+vim.keymap.set('', '<leader>l', require('lsp_lines').toggle, { desc = 'Toggle lsp_lines' })
+
+vim.keymap.set('n', '<M-l>', '<C-w>l')
+vim.keymap.set('n', '<M-h>', '<C-w>h')
+vim.keymap.set('n', '<M-j>', '<C-w>j')
+vim.keymap.set('n', '<M-k>', '<C-w>k')
+
