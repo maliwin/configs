@@ -8,3 +8,4 @@
 	last = log -1 HEAD
 [core]
 	editor = nvim
+	autocrlf = true
