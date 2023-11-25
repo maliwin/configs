@@ -14,7 +14,7 @@ end
 config.window_decorations = 'RESIZE'
 config.max_fps = 165
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
-config.default_domain = 'WSL:Ubuntu'
+-- config.default_domain = 'WSL:Ubuntu'
 
 -- and finally, return the configuration to wezterm
 return config

@@ -109,15 +109,13 @@ require('lazy').setup({
     },
   },
 
-  {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
+  { "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
     opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    },
+      indent = { char = '┊' },
+      whitespace = { remove_blankline_trail = false },
+      scope = { enabled = false }
+    }
   },
 
   -- "gc" to comment visual regions/lines
@@ -285,6 +283,7 @@ require('nvim-treesitter.configs').setup {
       goto_next_start = {
         [']m'] = '@function.outer',
         [']]'] = '@class.outer',
+        ['<leader>a'] = '@parameter.inner',
       },
       goto_next_end = {
         [']M'] = '@function.outer',
@@ -293,6 +292,7 @@ require('nvim-treesitter.configs').setup {
       goto_previous_start = {
         ['[m'] = '@function.outer',
         ['[['] = '@class.outer',
+        ['<leader>A'] = '@parameter.inner'
       },
       goto_previous_end = {
         ['[M'] = '@function.outer',
@@ -302,10 +302,10 @@ require('nvim-treesitter.configs').setup {
     swap = {
       enable = true,
       swap_next = {
-        ['<leader>a'] = '@parameter.inner',
+        -- ['<leader>a'] = '@parameter.inner',
       },
       swap_previous = {
-        ['<leader>A'] = '@parameter.inner',
+        -- ['<leader>A'] = '@parameter.inner',
       },
     },
   },
@@ -358,7 +358,8 @@ end
 
 -- Enable the following language servers
 local servers = {
-  pyright = {},
+  -- pyright = {},
+  pylsp = {},
   rust_analyzer = {},
   -- html = { filetypes = { 'html', 'twig', 'hbs'} },
 
